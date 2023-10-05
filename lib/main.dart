@@ -1,11 +1,12 @@
 import 'package:fitquest/pages/Cadastro.dart';
+import 'package:fitquest/pages/login.dart';
 import 'package:fitquest/pages/load.dart';
 
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Cadastro());
+  runApp(login());
 }
 
 class MyApp extends StatelessWidget {
