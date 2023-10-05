@@ -6,7 +6,7 @@ import 'package:fitquest/pages/load.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(login());
+  runApp(Load());
 }
 
 class MyApp extends StatelessWidget {
