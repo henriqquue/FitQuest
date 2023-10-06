@@ -85,15 +85,14 @@ class Login extends StatelessWidget {
                   child: Text("Entrar", style: TextStyle(color: Colors.white)),
                 ),
                 SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-                    // Adicione aqui a ação que deve ser realizada quando o link "Clique aqui" é clicado
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/cadastro');
                   },
                   child: Text(
-                    "Clique aqui se você não tiver uma conta",
+                    "Não possui cadastro? Clique aqui",
                     style: TextStyle(
                       color: Colors.white,
-                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ),
