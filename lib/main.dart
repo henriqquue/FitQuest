@@ -1,4 +1,5 @@
 import 'package:fitquest/pages/Cadastro.dart';
+import 'package:fitquest/pages/home.dart';
 import 'package:fitquest/pages/login.dart';
 import 'package:fitquest/pages/load.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
 
       routes: {
         '/cadastro': (context) => Cadastro(),
+        '/home': (context) => Home()
       } ,
       home: Login(),
     );

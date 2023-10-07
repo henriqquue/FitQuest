@@ -1,7 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool _isButtonEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController.addListener(_updateButtonState);
+    _passwordController.addListener(_updateButtonState);
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _updateButtonState() {
+    final email = _emailController.text;
+    final password = _passwordController.text;
+
+    setState(() {
+      _isButtonEnabled = email.isNotEmpty && password.length >= 8;
+    });
+  }
+
+  void _login() {
+
+    if (_isButtonEnabled) {
+      Navigator.pushNamed(context, '/home');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,6 +66,7 @@ class Login extends StatelessWidget {
                 Container(
                   width: 350,
                   child: TextFormField(
+                    controller: _emailController,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: "email",
@@ -50,6 +91,7 @@ class Login extends StatelessWidget {
                 Container(
                   width: 350,
                   child: TextFormField(
+                    controller: _passwordController,
                     style: TextStyle(color: Colors.white),
                     obscureText: true,
                     decoration: InputDecoration(
@@ -81,7 +123,7 @@ class Login extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                   ),
-                  onPressed: null,
+                  onPressed: _isButtonEnabled ? _login : null,
                   child: Text("Entrar", style: TextStyle(color: Colors.white)),
                 ),
                 SizedBox(height: 20),
@@ -104,4 +146,3 @@ class Login extends StatelessWidget {
     );
   }
 }
-
