@@ -32,6 +32,7 @@ class _LoginState extends State<Login> {
 
     setState(() {
       _isButtonEnabled = email.isNotEmpty && password.length >= 8;
+
     });
   }
 
@@ -40,6 +41,7 @@ class _LoginState extends State<Login> {
     if (_isButtonEnabled) {
       Navigator.pushNamed(context, '/home');
     }
+
   }
 
   @override
@@ -116,7 +118,7 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 50),
                 TextButton(
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.redAccent,
+                    backgroundColor: _isButtonEnabled ? Colors.redAccent : Colors.blueGrey,
                     padding: EdgeInsets.all(20),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
