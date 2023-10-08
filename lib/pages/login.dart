@@ -31,7 +31,10 @@ class _LoginState extends State<Login> {
     final password = _passwordController.text;
 
     setState(() {
-      _isButtonEnabled = email.contains("@") && password.length >= 8;
+      _isButtonEnabled = email.contains("@gmail.com") |
+                         email.contains("@rede.ulbra.br") |
+                         email.contains("@outlook.com") |
+                         email.contains("@yahoo.com.br") && password.length >= 8;
 
     });
   }
