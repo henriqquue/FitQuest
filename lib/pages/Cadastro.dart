@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Cadastro extends StatelessWidget {
   @override
@@ -6,64 +7,108 @@ class Cadastro extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xFF0B235C),
-        appBar: AppBar(
-          title: Text('Cadastro'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Nome:',
-                style: TextStyle(fontSize: 16),
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Digite seu nome',
+        body: ListView(
+          padding: EdgeInsets.all(16.0),
+          children: <Widget>[
+            SvgPicture.asset('assets/images/logo.svg', height: 350),
+            TextFormField(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                hintText: "Nome completo:",
+                hintStyle: TextStyle(color: Colors.blueGrey),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 2.5,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                  ),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
-                'E-mail:',
-                style: TextStyle(fontSize: 16),
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Digite seu e-mail',
+            ),
+            SizedBox(height: 16),
+            TextFormField(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                hintText: "Email:",
+                hintStyle: TextStyle(color: Colors.blueGrey),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 2.5,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                  ),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
-                'Senha:',
-                style: TextStyle(fontSize: 16),
-              ),
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Digite sua senha',
+            ),
+            SizedBox(height: 16),
+            TextFormField(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                hintText: "Senha:",
+                hintStyle: TextStyle(color: Colors.blueGrey),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 2.5,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                  ),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
-                'Confirmar Senha:',
-                style: TextStyle(fontSize: 16),
-              ),
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Digite novamente sua senha',
+            ),
+            SizedBox(height: 16),
+            TextFormField(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                hintText: "Confirmar senha:",
+                hintStyle: TextStyle(color: Colors.blueGrey),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 2.5,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                  ),
                 ),
               ),
-              SizedBox(height: 32),
-              ElevatedButton(
-                onPressed: () {
-                  // Lógica para lidar com o envio do formulário de cadastro
-                },
+            ),
+            SizedBox(height: 32),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {},
                 child: Text('Cadastrar'),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blueGrey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding: EdgeInsets.all(20),
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
