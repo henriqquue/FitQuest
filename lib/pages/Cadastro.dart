@@ -7,10 +7,46 @@ class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
 
   @override
-  State<Cadastro> createState() => _Cadastro();
+  State<Cadastro> createState() => _CadastroState();
 }
 
-class _Cadastro extends State<Cadastro> {
+class _CadastroState extends State<Cadastro> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordController2 = TextEditingController();
+
+  bool isButtonEnabled = false ;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController.addListener(_updateButtonState);
+    _passwordController.addListener(_updateButtonState);
+    _passwordController2.addListener(_updateButtonState);
+  }
+
+  void _updateButtonState() {
+    final email = _emailController.text;
+    final password = _passwordController.text;
+    final password2 = _passwordController2.text;
+
+    setState(() {
+      isButtonEnabled = email.contains("@gmail.com") |
+      email.contains("@rede.ulbra.br") |
+      email.contains("@outlook.com") |
+      email.contains("@yahoo.com.brA") && password.length >= 8
+          && password == password2;
+    });
+  }
+
+    void _login() {
+
+      if (isButtonEnabled) {
+        Navigator.pushNamed(context, '/home');
+      }
+
+    }
+
     @override
     Widget build(BuildContext context) {
       return MaterialApp(
@@ -54,6 +90,7 @@ class _Cadastro extends State<Cadastro> {
               SizedBox(height: 16),
               TextFormField(
                 style: TextStyle(color: Colors.white),
+                controller: _emailController,
                 decoration: InputDecoration(
                   hintText: "Email:",
                   hintStyle: TextStyle(color: Colors.blueGrey),
@@ -76,6 +113,7 @@ class _Cadastro extends State<Cadastro> {
               TextFormField(
                 style: TextStyle(color: Colors.white),
                 obscureText: true,
+                controller: _passwordController,
                 decoration: InputDecoration(
                   hintText: "Senha:",
                   hintStyle: TextStyle(color: Colors.blueGrey),
@@ -98,6 +136,7 @@ class _Cadastro extends State<Cadastro> {
               TextFormField(
                 style: TextStyle(color: Colors.white),
                 obscureText: true,
+                controller: _passwordController2,
                 decoration: InputDecoration(
                   hintText: "Confirmar senha:",
                   hintStyle: TextStyle(color: Colors.blueGrey),
@@ -119,10 +158,10 @@ class _Cadastro extends State<Cadastro> {
               SizedBox(height: 32),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: isButtonEnabled ? _login : null,
                   child: Text('Cadastrar'),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.blueGrey,
+                    backgroundColor: isButtonEnabled ? Colors.redAccent : Colors.grey,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     ),
@@ -136,4 +175,5 @@ class _Cadastro extends State<Cadastro> {
       );
     }
   }
+
 

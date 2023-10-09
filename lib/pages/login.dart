@@ -27,7 +27,7 @@ class _LoginState extends State<Login> {
       _isButtonEnabled = email.contains("@gmail.com") |
                          email.contains("@rede.ulbra.br") |
                          email.contains("@outlook.com") |
-                         email.contains("@yahoo.com.brA") && password.length >= 8;
+                         email.contains("@yahoo.com.br") && password.length >= 8;
 
     });
   }
