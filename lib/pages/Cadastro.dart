@@ -11,6 +11,17 @@ class Cadastro extends StatelessWidget {
           padding: EdgeInsets.all(16.0),
           children: <Widget>[
             SvgPicture.asset('assets/images/logo.svg', height: 350),
+            Center(
+              child: Text(
+                "Olá!",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
+              ),
+            ),
+            SizedBox(height: 50),
             TextFormField(
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
