@@ -19,13 +19,6 @@ class _LoginState extends State<Login> {
     _passwordController.addListener(_updateButtonState);
   }
 
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
   void _updateButtonState() {
     final email = _emailController.text;
     final password = _passwordController.text;
@@ -34,7 +27,7 @@ class _LoginState extends State<Login> {
       _isButtonEnabled = email.contains("@gmail.com") |
                          email.contains("@rede.ulbra.br") |
                          email.contains("@outlook.com") |
-                         email.contains("@yahoo.com.br") && password.length >= 8;
+                         email.contains("@yahoo.com.brA") && password.length >= 8;
 
     });
   }
