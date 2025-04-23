@@ -1,4 +1,4 @@
-# fitquest
+# FitQuest
 
 Projeto do aplicativo FitQuest
 
